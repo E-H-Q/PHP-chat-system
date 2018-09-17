@@ -57,7 +57,7 @@ if (isset ($_GET ["logout"])) {
 <head>
 <style>
 html, body {
-    height: 100%;
+    height: auto;
 }
 
 html {
@@ -167,12 +167,21 @@ img {
     margin-bottom: 10px;
     max-width: 20vw;
 }
+
+.settings {
+	display: table-cell;
+    vertical-align: top;
+	text-align: right;
+	width: 100vw;
+}
 </style>
 <title>Chat</title>
 <script src="settings.js"></script>
 <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 </head>
-<img src="settings.png" class="settings" style="width: 45px;">
+<div class="settings">
+	<img src="settings.png" style="width: 45px;">
+</div>
 <body>
     <?php
     if (! isset ( $_SESSION ['name'])) {
