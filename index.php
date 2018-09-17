@@ -3,6 +3,7 @@ session_start ();
 function loginForm() {
     echo '
    <div id="loginform">
+   <style>img {opacity: 0;}</style>
    <form action="index.php" method="post">
        <p>Please enter your name to continue:</p>
        <label for="name">Name:</label>
@@ -107,7 +108,7 @@ a:hover {
 #loginform p {
     margin: 5px;
 }
- 
+
 #chatbox {
     text-align: left;
     margin: 0 auto;
@@ -168,8 +169,10 @@ img {
 }
 </style>
 <title>Chat</title>
+<script src="settings.js"></script>
 <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 </head>
+<img src="settings.png" class="settings" style="width: 45px;">
 <body>
     <?php
     if (! isset ( $_SESSION ['name'])) {
