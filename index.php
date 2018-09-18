@@ -3,7 +3,7 @@ session_start ();
 function loginForm() {
     echo '
    <div id="loginform">
-   <style>img {opacity: 0;}</style>
+   <style>img {opacity: 0;}html,body{height:100%;}</style>
    <form action="index.php" method="post">
        <p>Please enter your name to continue:</p>
        <label for="name">Name:</label>
@@ -71,6 +71,7 @@ body {
     color: #FFFFFF;
     padding: 35px;
     display: table-cell;
+    text-align: center;
     vertical-align: middle;
 }
  
