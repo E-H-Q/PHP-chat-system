@@ -3,7 +3,7 @@ session_start ();
 function loginForm() {
     echo '
    <div id="loginform">
-   <style>img {opacity: 0;}html,body{height:100%;}</style>
+   <style>img {display:none;}html,body{height:100%; overflow: hidden;}</style>
    <form action="index.php" method="post">
        <p>Please enter your name to continue:</p>
        <label for="name">Name:</label>
@@ -175,13 +175,40 @@ img {
 	text-align: right;
 	width: 100vw;
 }
+
+.settings img {
+	cursor: pointer;
+}
+
+#settings {
+	display: none;
+	background-color: #FFFFFF;
+	position: relative;
+	text-align: left;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    padding: 10px;
+    background: #202020;
+    height: 0px;
+    width: 45vw;
+    border: 1px solid #474747;
+    overflow: auto;
+}
+
+#settings img {
+    cursor: pointer;
+    float: right;
+}
 </style>
 <title>Chat</title>
 <script src="settings.js"></script>
 <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 </head>
 <div class="settings">
-	<img src="settings.png" style="width: 45px;">
+	<img src="settings.png" style="width: 50px;" onclick="show()">
+</div>
+<div id="settings">
+    <img src="close.png" style="width: 25px;" onclick="document.getElementById('settings').style.display = 'none';">
 </div>
 <body>
     <?php
