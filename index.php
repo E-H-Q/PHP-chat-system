@@ -6,6 +6,7 @@ function loginForm() {
    <style>img {display:none;}html,body{height:100%; overflow: hidden;}</style>
    <form action="index.php" method="post">
        <p>Please enter your name to continue:</p>
+	   <br><br>
        <label for="name">Name:</label>
        <input style="border: 1px solid #474747;" type="text" autofocus="" name="name" id="name" />
        <input type="submit" name="enter" id="enter" value="Enter" />
@@ -55,160 +56,18 @@ if (isset ($_GET ["logout"])) {
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-html, body {
-    height: auto;
-}
-
-html {
-    display: table;
-    margin: auto;
-}
-
-body {
-    background-color: #000000;
-    font: 12px Consolas, Courier;
-    color: #FFFFFF;
-    padding: 35px;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
- 
-form, p, span {
-    margin: 0;
-    padding: 0;
-}
- 
-input {
-    font: 12px Consolas, Courier;
-}
- 
-a {
-    color: #FF0000;
-    text-decoration: none;
-}
- 
-a:hover {
-    text-decoration: underline;
-}
- 
-#wrapper,#loginform {
-    margin: 0 auto;
-    padding-bottom: 25px;
-    text-align: center;
-    background: #202020;
-    width: 50vw;
-    border: 1px solid #474747;
-}
- 
-#loginform {
-    padding-top: 18px;
-}
- 
-#loginform p {
-    margin: 5px;
-}
-
-#chatbox {
-    text-align: left;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    padding: 10px;
-    background: #202020;
-    height: 70vh;
-    width: 45vw;
-    border: 1px solid #474747;
-    overflow: auto;
-}
- 
-#usermsg {
-    width: 40vw;
-    border: 1px solid #FFFFFF;
-}
- 
-#submit {
-    width: 60px;
-}
- 
-.error {
-    color: #ff0000;
-}
- 
-#menu {
-    padding: 12.5px 25px 12.5px 25px;
-}
- 
-.welcome {
-    float: left;
-}
- 
-.logout {
-    float: right;
-}
- 
-.msgln {
-    margin: 0 0 2px 0;
-}
-
-user {
-    color: #00FF00;
-    font: 15px Consolas, Courier;
-    font-weight: bold;
-    letter-spacing: -1px;
-}
-
-alert {
-    text-align: center;
-}
-
-img {
-    text-align: left;
-    vertical-align: top;
-    margin-bottom: 10px;
-    max-width: 20vw;
-}
-
-.settings {
-	display: table-cell;
-    vertical-align: top;
-	text-align: right;
-	width: 100vw;
-}
-
-.settings img {
-	cursor: pointer;
-}
-
-#settings {
-	display: none;
-	background-color: #FFFFFF;
-	position: relative;
-	text-align: left;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    padding: 10px;
-    background: #202020;
-    height: 0px;
-    width: 45vw;
-    border: 1px solid #474747;
-    overflow: auto;
-}
-
-#settings img {
-    cursor: pointer;
-    float: right;
-}
-</style>
+	<link rel="stylesheet" type="text/css" href="dark.css">
 <title>Chat</title>
 <script src="settings.js"></script>
 <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 </head>
 <div class="settings">
-	<img src="settings.png" style="width: 50px;" onclick="show()">
+	<img src="settings.png" style="width: 45px;" onclick="show()">
 </div>
 <div id="settings">
+	<h3>- settings -</h3>
     <img src="close.png" style="width: 25px;" onclick="document.getElementById('settings').style.display = 'none';">
+	<br><br>
 </div>
 <body>
     <?php
@@ -218,12 +77,8 @@ img {
         ?>
 <div id="wrapper">
         <div id="menu">
-            <p class="welcome">
-                Hello, <b><?php echo $_SESSION['name']; ?></b>
-            </p>
-            <p class="logout">
-                <a id="exit" href="#">Exit Chat</a>
-            </p>
+            <p class="welcome">Hello, <b><?php echo $_SESSION['name']; ?></b></p>
+            <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
             <div style="clear: both"></div>
         </div>
         <div id="chatbox"><?php
