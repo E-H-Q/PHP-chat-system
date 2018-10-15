@@ -56,7 +56,7 @@ if (isset ($_GET ["logout"])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="dark.css">
+	<link id="css" rel="stylesheet" type="text/css" href="dark.css">
 <title>Chat</title>
 <script src="settings.js"></script>
 <link rel="shortcut icon" type="image/png" href="favicon.png"/>
@@ -64,10 +64,14 @@ if (isset ($_GET ["logout"])) {
 <div class="settings">
 	<img src="settings.png" style="width: 45px;" onclick="show()">
 </div>
-<div id="settings">
+<div id="settings"> <!-- display settings window -->
 	<h3>- settings -</h3>
     <img src="close.png" style="width: 25px;" onclick="document.getElementById('settings').style.display = 'none';">
 	<br><br>
+    <p>Style: </p><select id="style" name="style" onchange="change()">
+        <option>Dark</option>
+        <option>Light</option>
+    </select>
 </div>
 <body>
     <?php
