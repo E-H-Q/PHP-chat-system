@@ -23,11 +23,11 @@ if (isset ($_POST ['enter'])) {
 		echo "<span class='error'>Please enter a name</span>";
 	}
 	elseif (ctype_space($_POST ['name'])) {
-		echo "<span class='error'>Please enter a name</span>";
+		echo "<span class='error' id='error'>Please enter a name</span>";
 	}
     elseif ($_POST ['name'] == "GH057") {
         $_SESSION ["name"] = stripslashes (htmlspecialchars($_POST ["name"]));
-        $fp = fopen ( "log.html", "a" );
+        $fp = fopen ("log.html", "a");
         fclose ($fp);
     }
     else {
@@ -114,6 +114,12 @@ window.onbeforeunload = function(evt) {
 <script type="text/javascript">
 // jQuery Document
 $(document).ready(function(){
+    var scrollHeight = $("#chatbox").attr("scrollHeight") - 50;
+    var scroll = true;
+    if (scroll == true) {
+        $("#chatbox").animate({ scrollTop: scrollHeight }, "normal");
+        load = false;
+    }
 });
  
 //jQuery Document
@@ -135,7 +141,7 @@ $("#submitmsg").click(function(){
 });
 
 function loadLog(){ //convert from jQuery to JavaScript
-    var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request
+    var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 50; //Scroll height before the request
     $.ajax({
         url: "log.html",
         cache: false,
@@ -143,7 +149,7 @@ function loadLog(){ //convert from jQuery to JavaScript
             $("#chatbox").html(html); //Insert chat log into the #chatbox div
            
             //Auto-scroll
-            var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request
+            var newscrollHeight = $("#chatbox").attr("scrollHeight") - 50; //Scroll height after the request
             if(newscrollHeight > oldscrollHeight){
                 $("#chatbox").animate({ scrollTop: newscrollHeight }, "normal"); //Autoscroll to bottom of div
             }
