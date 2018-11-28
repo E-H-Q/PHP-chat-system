@@ -33,7 +33,7 @@ if (isset ($_POST ['enter'])) {
     else {
         $_SESSION ["name"] = stripslashes (htmlspecialchars($_POST ["name"]));
         $fp = fopen ( "log.html", "a" );
-        fwrite ($fp, "<alert><div class='msgln'><i><span>(".date("g:i A").")</span> User " . $_SESSION ['name'] . " has joined the chat session.</i><br></div></alert>");
+        //fwrite ($fp, "<alert><div class='msgln'><i><span>(".date("g:i A").")</span> User " . $_SESSION ['name'] . " has joined the chat session.</i><br></div></alert>");
         fclose ($fp);
     }
 }
@@ -45,7 +45,7 @@ if (isset ($_GET ["logout"])) {
     }
     else {
         $fp = fopen ("log.html", "a");
-        fwrite ($fp, "<alert><div class='msgln'><i><span>(".date("g:i A").")</span> User " . $_SESSION ['name'] . " has left the chat session.</i><br></div></alert>");
+        //fwrite ($fp, "<alert><div class='msgln'><i><span>(".date("g:i A").")</span> User " . $_SESSION ['name'] . " has left the chat session.</i><br></div></alert>");
         fclose ($fp);
         session_destroy ();
         header ("Location: index.php"); //refresh the page and destroy the session
@@ -82,7 +82,7 @@ if (isset ($_GET ["logout"])) {
         }
         ?></div>
         <?php
-        if ($_POST ['name'] != "GH057") {
+        if ($_POST ["name"] != "GH057") {
             echo '
             <form name="message" action="">
                 <input name="usermsg" autofocus="" spellcheck="true" type="text" id="usermsg" size="63"/> <input name="submitmsg" type="submit" id="submitmsg" value="Send"/>
@@ -95,6 +95,22 @@ if (isset ($_GET ["logout"])) {
         ?>
     </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+
+<script>
+    window.onbeforeunload = function(evt) {
+    return true;
+}
+window.onbeforeunload = function(evt) {
+    var message = "Are you sure you want to log out?";
+    if (typeof evt == "undefined") {
+        evt = window.event.srcElement;
+    }
+    if (evt) {
+        evt.returnValue = message;
+    }
+}
+</script>
+
 <script type="text/javascript">
 // jQuery Document
 $(document).ready(function(){
@@ -104,7 +120,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     //If user wants to end session
     $("#exit").click(function(){
-        var exit = confirm("Are you sure you want to log out?");
+        var exit = true;
         if(exit==true){window.location = 'index.php?logout=true';}
     });
 });
@@ -117,7 +133,7 @@ $("#submitmsg").click(function(){
         loadLog;
     return false;
 });
- 
+
 function loadLog(){ //convert from jQuery to JavaScript
     var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request
     $.ajax({
