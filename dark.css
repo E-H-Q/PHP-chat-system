@@ -37,6 +37,8 @@ a:hover {
  
 #wrapper,#loginform {
     margin: 0 auto;
+	margin-top: 3vh;
+	margin-bottom: 3vh;
     padding-bottom: 25px;
     text-align: center;
     background: #202020;
@@ -109,41 +111,4 @@ img {
     vertical-align: top;
     margin-bottom: 10px;
     max-width: 20vw;
-}
-
-.settings {
-	display: table-cell;
-    vertical-align: top;
-	text-align: right;
-	width: 100vw;
-}
-
-.settings img {
-	cursor: pointer;
-}
-
-#settings {
-	display: none;
-	background-color: #FFFFFF;
-	position: relative;
-	text-align: left;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    padding: 10px;
-    background: #202020;
-    height: 0px;
-    width: 45vw;
-    border: 1px solid #474747;
-    overflow: auto;
-	text-align: center;
-}
-
-#settings img {
-    cursor: pointer;
-    float: right;
-}
-
-#settings h3, p {
-	display: inline;
-	font-weight: bold;
 }
