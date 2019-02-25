@@ -87,6 +87,8 @@ if (isset ($_GET ["logout"])) {
             <form name="message" action="">
                 <input name="usermsg" autofocus="" spellcheck="true" type="text" id="usermsg" size="63"/> <input name="submitmsg" type="submit" id="submitmsg" value="Send"/>
             </form>
+			<br>
+			<a onclick="alert(`[b]bold text[/b]\n[i]italic text[/i]\n[u]underlined text[/u]\n[color=blue]text[/color]\n[url]http://example.com[/url]`);">BBCode help</a>
             ';
         }
         else {
